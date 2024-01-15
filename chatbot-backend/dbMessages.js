@@ -6,5 +6,9 @@ const messagingSchema = mongoose.Schema({
   name: String,
   timestamp: String,
   received: Boolean,
+  userid: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 export default mongoose.model("messagingmessages", messagingSchema);
