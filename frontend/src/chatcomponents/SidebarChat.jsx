@@ -2,7 +2,6 @@
 import avatarImage from "../assets/avator_profile.jpeg";
 import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
-import "./SidebarChat.css";
 const SidebarChat = () => {
   const [seed, setSeed] = useState("");
   useEffect(() => {

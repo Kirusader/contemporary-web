@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import Pusher from "pusher-js";
-import Sidebar from "./components/Sidebar";
-import Chat from "./components/Chat";
-import "./App.css";
-import axios from "./components/axios";
-function App() {
+import Sidebar from "../chatcomponents/Sidebar";
+import Chat from "../chatcomponents/Chat";
+import "../chat.css";
+import axios from "../chatcomponents/axios";
+function ChatApp() {
   const [messages, setMessages] = useState([]);
   const [user, setUser] = useState(null);
   useEffect(() => {
@@ -42,4 +42,4 @@ function App() {
   );
 }
 
-export default App;
+export default ChatApp;

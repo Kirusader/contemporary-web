@@ -5,6 +5,7 @@ import GameApp from "./pages/GameApp";
 import QuizApp from "./pages/QuizApp";
 import RootLayout from "./pages/Root";
 import ErrorPage from "./pages/Error";
+import ChatApp from "./pages/ChatApp";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <GameApp /> },
       { path: "/quiz", element: <QuizApp /> },
+      { path: "/chat", element: <ChatApp /> },
     ],
   },
 ]);

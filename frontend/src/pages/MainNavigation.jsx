@@ -9,6 +9,15 @@ function MainNavigation() {
           <ul className="list">
             <li>
               <NavLink
+                to="/chat"
+                style={({ isActive }) => ({
+                  color: isActive ? "red" : "",
+                })}>
+                Chat
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/"
                 style={({ isActive }) => ({
                   color: isActive ? "red" : "",

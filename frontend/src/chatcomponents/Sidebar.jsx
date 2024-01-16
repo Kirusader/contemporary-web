@@ -7,8 +7,6 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
 import SearchIcon from "@mui/icons-material/Search";
-import "./Sidebar.css";
-import "./Searchbar.css";
 import SidebarChat from "./SidebarChat";
 import profilePicture from "../assets/avator_profile.jpeg";
 const Sidebar = () => {

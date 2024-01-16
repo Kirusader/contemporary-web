@@ -11,7 +11,6 @@ import avatarImage from "../assets/avator_profile.jpeg";
 import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
 import MicIcon from "@mui/icons-material/Mic";
-import "./Chat.css";
 import axios from "./axios";
 const Chat = ({ messages }) => {
   const [seed, setSeed] = useState("");
