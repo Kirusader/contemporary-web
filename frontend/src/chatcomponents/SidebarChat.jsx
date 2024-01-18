@@ -1,20 +1,26 @@
 /** @format */
 import avatarImage from "../assets/avator_profile.jpeg";
-import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
-const SidebarChat = () => {
-  const [seed, setSeed] = useState("");
-  useEffect(() => {
-    setSeed(Math.floor(Math.random() * 5000));
-  }, []);
+const SidebarChat = ({ messages }) => {
+  // Check if there are messages and the last message is not undefined
+  const hasMessages = messages && messages.length > 0;
+  const lastMessage = hasMessages ? messages[messages.length - 1] : null;
+
   return (
     <div className="sidebarChat">
       <Avatar src={avatarImage} />
       <div className="sidebarChat__info">
-        <h2>Room name</h2>
-        <p>Last message...</p>
+        {hasMessages ? (
+          <>
+            <h2>{lastMessage.name}</h2>
+            <p>{lastMessage.message}</p>
+          </>
+        ) : (
+          <p>No messages</p> // Or any other placeholder content
+        )}
       </div>
     </div>
   );
 };
+
 export default SidebarChat;

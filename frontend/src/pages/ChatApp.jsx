@@ -5,32 +5,19 @@ import Pusher from "pusher-js";
 import Sidebar from "../chatcomponents/Sidebar";
 import Chat from "../chatcomponents/Chat";
 import "../chat.css";
-import axios from "../chatcomponents/axios";
+import { db } from "../firebaseconfig.js";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 function ChatApp() {
   const [messages, setMessages] = useState([]);
-  const [user, setUser] = useState(null);
+  const messageCollectionRef = collection(db, "chats");
   useEffect(() => {
-    axios.get("/messages/sync").then((res) => {
-      setMessages(res.data);
-    });
-  }, []);
-  useEffect(() => {
-    const pusher = new Pusher("d26dc308b340e5117a7f", {
-      cluster: "eu",
-    });
-    const channel = pusher.subscribe("messages");
-    channel.bind("inserted", (newMessage) => {
-      // Use functional update to ensure we always have the latest state
-      setMessages((prevMessages) => [...prevMessages, newMessage]);
-    });
-    // Cleanup function to unbind and unsubscribe when component unmounts or dependencies change
-    return () => {
-      channel.unbind_all();
-      channel.unsubscribe();
+    const getMessages = async () => {
+      const q = query(messageCollectionRef, orderBy("timestamp", "asc"));
+      const data = await getDocs(q);
+      setMessages(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-  }, []); // Removed 'messages' from the dependencies array
-
-  console.log(messages);
+    getMessages();
+  }, []);
 
   return (
     <div className="app">

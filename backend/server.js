@@ -2,7 +2,8 @@
 
 import express from "express";
 import mongoose from "mongoose";
-import Messages from "./dbMessages.js";
+import Messages from "./model/dbMessages.js";
+import User from "./model/User.js";
 import Cors from "cors";
 import Pusher from "pusher";
 // App Config
@@ -66,7 +67,15 @@ app.post("/messages/new", async (req, res) => {
     res.status(500).send(err);
   }
 });
-
+app.post("/users/new", async (req, res) => {
+  const dbUsers = req.body;
+  try {
+    const data = await User.create(dbUsers);
+    res.status(201).send(data);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 app.get("/messages/sync", async (req, res) => {
   try {
     const data = await Messages.find();
@@ -75,6 +84,13 @@ app.get("/messages/sync", async (req, res) => {
     res.status(500).send(err);
   }
 });
-
+app.get("/users/sync", async (req, res) => {
+  try {
+    const data = await User.find();
+    res.status(201).send(data);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 // Listener
 app.listen(port, () => console.log(`Listening on localhost: ${port}`));

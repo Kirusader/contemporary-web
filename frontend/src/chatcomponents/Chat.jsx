@@ -11,23 +11,31 @@ import avatarImage from "../assets/avator_profile.jpeg";
 import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
 import MicIcon from "@mui/icons-material/Mic";
-import axios from "./axios";
+import { db } from "../firebaseconfig.js";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 const Chat = ({ messages }) => {
   const [seed, setSeed] = useState("");
   const [input, setInput] = useState("");
+  const messageCollectionRef = collection(db, "chats");
   const sendMessage = async (e) => {
     e.preventDefault();
-    await axios.post("/messages/new", {
+
+    await addDoc(messageCollectionRef, {
       message: input,
       name: "Kiros",
       timestamp: new Date().toUTCString(),
       received: true,
     });
     setInput("");
+    window.location.reload();
   };
-  useEffect(() => {
-    setSeed(Math.floor(Math.random() * 5000));
-  }, []);
   return (
     <div className="chat">
       <div className="chat__header">
@@ -49,15 +57,19 @@ const Chat = ({ messages }) => {
         </div>
       </div>
       <div className="chat__body">
-        {messages.map((message, index) => (
-          <p
-            key={index}
-            className={`chat__message ${message.received && "chat__receiver"}`}>
-            <span className="chat__name">{message.name}</span>
-            {message.message}
-            <span className="chat__timestamp">{message.timestamp}</span>
-          </p>
-        ))}
+        {messages.map((message, index) => {
+          return (
+            <p
+              key={index}
+              className={`chat__message ${
+                message.received && "chat__receiver"
+              }`}>
+              <span className="chat__name">{message.name}</span>
+              {message.message}
+              <span className="chat__timestamp">{message.timestamp}</span>
+            </p>
+          );
+        })}
       </div>
       <div className="chat__footer">
         <InsertEmoticon />

@@ -1,7 +1,8 @@
 /** @format */
 
 .header {
-  max-width: 60rem;
+  color: white;
+  max-width: 100%;
   margin: auto;
   padding: 2rem;
   display: flex;

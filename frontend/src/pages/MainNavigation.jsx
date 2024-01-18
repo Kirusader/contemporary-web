@@ -9,18 +9,36 @@ function MainNavigation() {
           <ul className="list">
             <li>
               <NavLink
+                to="/"
+                style={({ isActive }) => ({
+                  color: isActive ? "white" : "",
+                })}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/chat"
                 style={({ isActive }) => ({
-                  color: isActive ? "red" : "",
+                  color: isActive ? "white" : "",
                 })}>
                 Chat
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/quiz"
                 style={({ isActive }) => ({
-                  color: isActive ? "red" : "",
+                  color: isActive ? "white" : "",
+                })}>
+                Quiz
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/game"
+                style={({ isActive }) => ({
+                  color: isActive ? "white" : "",
                   fontSize: isActive ? "large" : "",
                 })}>
                 Game
@@ -28,11 +46,22 @@ function MainNavigation() {
             </li>
             <li>
               <NavLink
-                to="/quiz"
+                to="/Login"
                 style={({ isActive }) => ({
-                  color: isActive ? "red" : "",
+                  color: isActive ? "white" : "",
+                  fontSize: isActive ? "large" : "",
                 })}>
-                Quiz
+                LogIn
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/logout"
+                style={({ isActive }) => ({
+                  color: isActive ? "white" : "",
+                  fontSize: isActive ? "large" : "",
+                })}>
+                LogOut
               </NavLink>
             </li>
           </ul>
