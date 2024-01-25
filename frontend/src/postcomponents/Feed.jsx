@@ -6,12 +6,12 @@ import styled from "styled-components";
 import Messenger from "./Messenger";
 import Post from "./Post.jsx";
 import { db } from "../firebaseconfig.js";
-import { collection, query, onSnapshot } from "firebase/firestore";
+import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 const Feed = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const q = query(collection(db, "posts"));
+    const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const postsArray = querySnapshot.docs.map((doc) => ({
         id: doc.id,
@@ -35,6 +35,7 @@ const Feed = () => {
           image={post.data.imageurl}
           timestamp={post.data.timestamp.toDate().toLocaleString()}
           username={post.data.username}
+          likes={post.data.likes}
         />
       ))}
     </FeedWrapper>

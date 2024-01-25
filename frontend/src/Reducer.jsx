@@ -5,6 +5,7 @@ const initialState = {
   isLoggedIn: JSON.parse(localStorage.getItem("isLoggedIn")) || false,
   token: null,
   username: null,
+  uid: null,
 };
 const AuthContext = createContext({
   state: initialState,
@@ -14,10 +15,12 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN_SUCCESS":
       localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("uid", action.payload.uid);
       localStorage.setItem("token", action.payload.token);
       localStorage.setItem("username", action.payload.username);
       return {
         isLoggedIn: true,
+        uid: action.payload.uid,
         token: action.payload.token,
         username: action.payload.username,
       };
@@ -25,8 +28,9 @@ const reducer = (state, action) => {
     case "LOGOUT":
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("token");
+      localStorage.removeItem("uid");
       localStorage.removeItem("username");
-      return { isLoggedIn: false, token: null, username: null };
+      return { isLoggedIn: false, token: null, uid: null, username: null };
     default:
       return state;
   }
@@ -40,6 +44,7 @@ const AuthProvider = ({ children }) => {
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: {
+          uid: localStorage.getItem("uid"),
           token: localStorage.getItem("token"),
           username: localStorage.getItem("username"),
         },

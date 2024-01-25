@@ -1,6 +1,5 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
@@ -17,25 +16,63 @@ import {
 } from "firebase/storage";
 import { v4 } from "uuid";
 import { collection, addDoc } from "firebase/firestore";
-
+import React, { useState, useEffect, useRef } from "react";
+import VideocamOffIcon from "@mui/icons-material/VideocamOff";
+import IconButton from "@mui/material/IconButton";
 const Messenger = () => {
   const [image, setImage] = useState(null);
   const [formData, setFormData] = useState({
-    username: "Dave",
+    username: "",
     description: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
   const { state, dispatch } = useAuth();
+  const [streaming, setStreaming] = useState(false);
+  const videoRef = useRef(null);
+  const streamRef = useRef(null);
+
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
-      setUsername(storedUsername);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        username: storedUsername,
+      }));
       dispatch({
         type: "LOGIN",
         payload: { username: storedUsername, isLoggedIn: true },
       });
     }
   }, [dispatch]);
+
+  const startVideo = () => {
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then((stream) => {
+          streamRef.current = stream;
+          if (videoRef.current) {
+            videoRef.current.srcObject = stream;
+          }
+          setStreaming(true);
+        })
+        .catch(console.error);
+    }
+  };
+
+  const stopVideo = () => {
+    if (streamRef.current) {
+      const tracks = streamRef.current.getTracks();
+      tracks.forEach((track) => track.stop());
+      setStreaming(false);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      stopVideo(); // Stop video when component unmounts
+    };
+  }, []);
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
@@ -76,7 +113,11 @@ const Messenger = () => {
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
 
         <form onSubmit={handleSubmit}>
-          <input type="file" onChange={handleImageChange} />
+          <input
+            type="file"
+            onChange={handleImageChange}
+            className="messenger__fileSelector"
+          />
           <input
             hidden
             type="text"
@@ -87,6 +128,7 @@ const Messenger = () => {
           />
           <textarea
             name="description"
+            className="messenger__input"
             value={formData.description}
             onChange={handleInputChange}
             placeholder="what is in your mind?"
@@ -97,11 +139,32 @@ const Messenger = () => {
       </MessengerTop>
       <MessengerBottom>
         <div className="messenger__option">
-          <VideocamIcon style={{ color: "red" }} />
           <h3>Live Video</h3>
+          <div>
+            <video
+              ref={videoRef}
+              autoPlay
+              style={{ display: streaming ? "block" : "none" }}
+            />
+            <IconButton
+              onClick={startVideo}
+              disabled={streaming}
+              color="primary">
+              <VideocamIcon />
+            </IconButton>
+            <IconButton
+              onClick={stopVideo}
+              disabled={!streaming}
+              color="secondary">
+              <VideocamOffIcon />
+            </IconButton>
+          </div>
         </div>
         <div className="messenger__option">
-          <PhotoLibraryIcon style={{ color: "green" }} />
+          <IconButton onClick={handleSubmit}>
+            <PhotoLibraryIcon style={{ color: "green" }} />
+          </IconButton>
+
           <h3>Photo/Video</h3>
         </div>
         <div className="messenger__option">

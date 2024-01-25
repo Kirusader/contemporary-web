@@ -5,8 +5,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
+import IconButton from "@mui/material/IconButton";
 import NearMeIcon from "@mui/icons-material/NearMe";
-const Post = ({ profilePic, message, timestamp, image, username }) => {
+const Post = ({ profilePic, message, timestamp, image, username, likes }) => {
   const date = new Date(timestamp);
   const formattedDate = date.toLocaleString();
   const [post, setPost] = useState({
@@ -14,17 +16,14 @@ const Post = ({ profilePic, message, timestamp, image, username }) => {
     comments: [],
     shares: 0,
   });
-
   const [comment, setComment] = useState(""); // new state to handle comment input
   const [showInput, setShowInput] = useState(false); // new state to handle showing and hiding of input
-
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(likes);
   const handleLike = () => {
-    setPost((prevPost) => ({
-      ...prevPost,
-      likes: prevPost.likes + 1,
-    }));
+    setLiked(!liked);
+    setLikeCount(liked ? likeCount - 1 : likeCount + 1);
   };
-
   const handleComment = (e) => {
     e.preventDefault();
     setPost((prevPost) => ({
@@ -70,8 +69,10 @@ const Post = ({ profilePic, message, timestamp, image, username }) => {
       )}
       <PostOptions>
         <div className="post__option">
-          <ThumbUpIcon onClick={handleLike} />
-          <p>{post.likes} Likes</p>
+          <IconButton onClick={handleLike}>
+            {liked ? <ThumbUpIcon color="primary" /> : <ThumbUpOutlinedIcon />}
+            {likeCount}
+          </IconButton>
         </div>
         <div className="post__option">
           <ChatBubbleOutlineIcon onClick={() => setShowInput(true)} />

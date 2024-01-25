@@ -8,6 +8,7 @@ import ContactMailIcon from "@mui/icons-material/ContactMail";
 import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
+import GamepadIcon from "@mui/icons-material/Gamepad";
 import styled from "styled-components";
 import { useAuth } from "../Reducer";
 import { useNavigate } from "react-router-dom";
@@ -47,6 +48,9 @@ const Sidebar = () => {
   const handleQuiz = () => {
     navigate("/quiz");
   };
+  const handleGame = () => {
+    navigate("/game");
+  };
   const handleLogin = () => {
     navigate("/login");
   };
@@ -58,7 +62,8 @@ const Sidebar = () => {
   };
 
   return (
-    <SidebarWrapper>
+    <SidebarWrapper
+      style={{ color: "white", fontWeight: "bolder", fontSize: "larger" }}>
       <SidebarRow
         title={`Welcome, ${username}`} // Changed to a template string
       />
@@ -71,6 +76,7 @@ const Sidebar = () => {
       />
       <SidebarRow onClick={handleChat} Icon={ContactMailIcon} title="Chat" />
       <SidebarRow onClick={handleQuiz} Icon={LiveHelpIcon} title="Quiz" />
+      <SidebarRow onClick={handleGame} Icon={GamepadIcon} title="Game" />
       {state.isLoggedIn ? (
         <SidebarRow onClick={handleLogout} Icon={LogoutIcon} title="Logout" />
       ) : (
