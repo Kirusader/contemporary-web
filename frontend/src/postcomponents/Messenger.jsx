@@ -24,6 +24,7 @@ const Messenger = () => {
   const [formData, setFormData] = useState({
     username: "",
     description: "",
+    likes: 0,
   });
   const [errorMessage, setErrorMessage] = useState("");
   const { state, dispatch } = useAuth();

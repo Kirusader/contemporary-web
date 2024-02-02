@@ -61,6 +61,9 @@ function Login() {
     <div
       className="container"
       style={{ color: "white", fontWeight: "bolder", fontSize: "large" }}>
+      <h1 style={{ textAlign: "center", color: "white" }}>
+        Welcome Solent Student Hub
+      </h1>
       <h1 style={{ textAlign: "center", color: "white" }}>Login</h1>
       <Form onSubmit={handleSubmit}>
         {errorMessage}

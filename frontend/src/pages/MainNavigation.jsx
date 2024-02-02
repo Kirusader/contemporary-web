@@ -56,7 +56,7 @@ function MainNavigation() {
                       color: isActive ? "white" : "",
                       fontSize: isActive ? "large" : "",
                     })}>
-                    LogOut
+                    Logout
                   </NavLink>
                 </li>
               </>

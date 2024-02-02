@@ -12,6 +12,7 @@ import {
 import Sidebar from "./Sidebar.jsx";
 import avatarImage from "../assets/avator_profile.jpeg";
 import IconButton from "@mui/material/IconButton";
+import SendIcon from "@mui/icons-material/Send";
 import Avatar from "@mui/material/Avatar";
 import MicIcon from "@mui/icons-material/Mic";
 import { db } from "../firebaseconfig.js";
@@ -22,7 +23,9 @@ import {
   query,
   orderBy,
   where,
+  onSnapshot,
 } from "firebase/firestore";
+
 const Chat = () => {
   const { dispatch } = useAuth();
   const [messages, setMessages] = useState([]);
@@ -38,6 +41,7 @@ const Chat = () => {
   const storedChatId = storedUid + myparams.memberId;
   const invertedChatId = myparams.memberId + storedUid;
   const [chatWith, setChatWith] = useState([]);
+
   useEffect(() => {
     if (storedUsername && storedUid) {
       setUid(storedUid);
@@ -48,13 +52,13 @@ const Chat = () => {
         payload: { username: storedUsername, uid: storedUid, isLoggedIn: true },
       });
     }
-  }, [dispatch]);
+  }, [dispatch, storedUid, storedUsername]);
 
   useEffect(() => {
     const getChats = async () => {
       try {
         const q = query(
-          messageCollectionRef,
+          collection(db, "users"),
           where("uid", "==", myparams.memberId)
         );
         const data = await getDocs(q);
@@ -68,21 +72,58 @@ const Chat = () => {
       getChats();
     }
   }, [myparams.memberId]);
-  console.log(chatWith[0]);
   useEffect(() => {
-    const getMessages = async (chatIdentifier, setMessageState) => {
+    const subscribeToMessages = (chatIdentifier, setMessageState) => {
       const q = query(
         messageCollectionRef,
         where("chatId", "==", chatIdentifier),
         orderBy("timestamp", "asc")
       );
-      const data = await getDocs(q);
-      setMessageState(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+
+      // Using onSnapshot to listen to real-time updates on chat messages
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const messages = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setMessageState(messages);
+      });
+
+      return unsubscribe;
     };
 
-    getMessages(storedChatId, setMessages);
-    getMessages(invertedChatId, setMyMessages);
+    // Subscribe to messages for storedChatId and invertedChatId
+    const unsubscribeStoredChat = subscribeToMessages(
+      storedChatId,
+      setMessages
+    );
+    const unsubscribeInvertedChat = subscribeToMessages(
+      invertedChatId,
+      setMyMessages
+    );
+
+    // Cleanup process to unsubscribe from the listeners when the component unmounts
+    return () => {
+      unsubscribeStoredChat();
+      unsubscribeInvertedChat();
+    };
   }, [storedChatId, invertedChatId]);
+
+  // useEffect(() => {
+  //   const getMessages = async (chatIdentifier, setMessageState) => {
+  //     const q = query(
+  //       messageCollectionRef,
+  //       where("chatId", "==", chatIdentifier),
+  //       orderBy("timestamp", "asc")
+  //     );
+  //     const data = await getDocs(q);
+  //     setMessageState(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  //   };
+
+  //   getMessages(storedChatId, setMessages);
+  //   getMessages(invertedChatId, setMyMessages);
+  // }, [storedChatId, invertedChatId]);
+
   const sendMessage = async (e) => {
     e.preventDefault();
 
@@ -97,9 +138,11 @@ const Chat = () => {
     setInput("");
     window.location.reload();
   };
+
   const combinedMessages = [...myMessages, ...messages].sort((a, b) => {
     return new Date(a.timestamp) - new Date(b.timestamp);
   });
+
   return (
     <div className="app">
       <div className="app__body">
@@ -108,9 +151,12 @@ const Chat = () => {
           <div className="chat__header">
             <Avatar src={avatarImage} />
             <div className="chat__headerInfo">
-              {chatWith.slice(0, 1).map((chat) => (
-                <h3 key={chat.id}>You are chatting with {chat.name}</h3>
-              ))}
+              {chatWith.length > 0 &&
+                chatWith
+                  .slice(0, 1)
+                  .map((chat) => (
+                    <h3 key={chat.id}>You are chatting with {chat.username}</h3>
+                  ))}
               <p>Last seen at {messages[messages.length - 1]?.timestamp}</p>
             </div>
             <div className="chat__headerRight">
@@ -126,7 +172,6 @@ const Chat = () => {
             </div>
           </div>
           <div className="chat__body">
-            {}
             {(myMessages.length || messages.length) <= 0 ? (
               <p
                 style={{
@@ -134,25 +179,21 @@ const Chat = () => {
                   backgroundColor: "white",
                   textAlign: "center",
                 }}>
-                {" "}
                 You haven't chat with before start chat now by sending messages.
               </p>
             ) : (
               <div className="chat__messageContainer">
-                {combinedMessages.map((message) =>
-                  message.name === chatWith[0].name ? (
-                    <p className="chat__message" key={message.id}>
-                      <span className="chat__name">{message.name}</span>
-                      {message.message}
-                      <span className="chat__timestamp">
-                        {message.timestamp}
-                      </span>
-                    </p>
-                  ) : (
+                {combinedMessages.map((message) => {
+                  const isChatWithName =
+                    chatWith.length > 0 &&
+                    message.name === chatWith[0].username;
+                  return (
                     <p
                       key={message.id}
                       className={`chat__message ${
-                        message.received && "chat__receiver"
+                        !isChatWithName && message.received
+                          ? "chat__receiver"
+                          : ""
                       }`}>
                       <span className="chat__name">{message.name}</span>
                       {message.message}
@@ -160,8 +201,8 @@ const Chat = () => {
                         {message.timestamp}
                       </span>
                     </p>
-                  )
-                )}
+                  );
+                })}
               </div>
             )}
           </div>
@@ -174,9 +215,9 @@ const Chat = () => {
                 placeholder="Type a message"
                 type="text"
               />
-              <button type="submit" onClick={sendMessage}>
-                Send a message
-              </button>
+              <IconButton type="submit" onClick={sendMessage}>
+                <SendIcon />
+              </IconButton>
             </form>
             <MicIcon />
           </div>
@@ -185,4 +226,5 @@ const Chat = () => {
     </div>
   );
 };
+
 export default Chat;

@@ -14,6 +14,13 @@ function Register() {
   const [username, setUserName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const [passwordValidations, setPasswordValidations] = useState({
+    minLength: false,
+    lowercase: false,
+    uppercase: false,
+    number: false,
+    specialChar: false,
+  });
 
   const createUserDocument = async (user, additionalData) => {
     if (!user) return;
@@ -38,6 +45,19 @@ function Register() {
     }
   };
 
+  const handlePasswordChange = (e) => {
+    const { value } = e.target;
+    setPassword(value);
+
+    setPasswordValidations({
+      minLength: value.length >= 6,
+      lowercase: /[a-z]/.test(value),
+      uppercase: /[A-Z]/.test(value),
+      number: /[0-9]/.test(value),
+      specialChar: /[\W_]/.test(value),
+    });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (username.length >= 4 && username.length <= 10) {
@@ -48,6 +68,7 @@ function Register() {
           password
         );
         await createUserDocument(user, { username });
+        alert("You registered successfully!!");
         navigate("/login");
       } catch (error) {
         setErrorMessage(
@@ -71,7 +92,28 @@ function Register() {
       style={{ color: "white", fontWeight: "bolder", fontSize: "large" }}>
       <h1 style={{ textAlign: "center", color: "white" }}>Register</h1>
       <Form onSubmit={handleSubmit}>
-        {errorMessage}
+        <div>
+          {errorMessage}
+          <p style={{ color: passwordValidations.minLength ? "green" : "red" }}>
+            Password must be minimum 8 characters
+          </p>
+          <p style={{ color: passwordValidations.lowercase ? "green" : "red" }}>
+            At least one lowercase letter
+          </p>
+          <p style={{ color: passwordValidations.uppercase ? "green" : "red" }}>
+            At least one uppercase letter
+          </p>
+          <p style={{ color: passwordValidations.number ? "green" : "red" }}>
+            At least one number
+          </p>
+          <p
+            style={{
+              color: passwordValidations.specialChar ? "green" : "red",
+            }}>
+            At least one special character
+          </p>
+        </div>
+
         <Form.Group controlId="formBasicUsername">
           <Form.Label>User name</Form.Label>
           <Form.Control
@@ -98,9 +140,9 @@ function Register() {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
-            placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePasswordChange}
+            placeholder="Enter password"
           />
         </Form.Group>
 

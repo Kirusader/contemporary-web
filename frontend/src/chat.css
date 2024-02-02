@@ -161,7 +161,7 @@
   border: none;
 }
 .chat__footer > form > button {
-  display: none;
+  padding: 0 0 0 10px;
 }
 .chat__footer > .MuiSvgIcon-root {
   padding: 10px;

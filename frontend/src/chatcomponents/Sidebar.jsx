@@ -16,7 +16,7 @@ const Sidebar = () => {
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(db, "users");
   const userId = localStorage.getItem("uid");
-
+  const username = localStorage.getItem("username");
   useEffect(() => {
     const q = query(usersCollectionRef, where("uid", "!=", userId));
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -33,7 +33,11 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <Avatar src={profilePicture} />
+        <IconButton>
+          <Avatar src={profilePicture} />
+          <h4 style={{ color: "black", padding: "0 0 0 4px" }}>{username}</h4>
+        </IconButton>
+
         <div className="sidebar__headerRight">
           <IconButton>
             <DonutLargeIcon />
