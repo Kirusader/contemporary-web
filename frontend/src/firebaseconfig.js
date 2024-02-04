@@ -1,6 +1,5 @@
 /** @format */
 
-// Firebase v9+ uses a different import style
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -15,8 +14,6 @@ import {
   where,
   getDocs,
   addDoc,
-  doc,
-  getDoc,
 } from "firebase/firestore";
 import { getDatabase } from "firebase/database";
 import { getStorage } from "firebase/storage";
@@ -48,10 +45,9 @@ const signInWithFacebook = async (navigate, dispatch) => {
   try {
     const res = await signInWithPopup(auth, facebookProvider);
     const user = res.user;
-    console.log(user);
     await checkAndAddUser(user);
     handleLoginSuccess(user, dispatch);
-    navigate("/"); // Using passed navigate function
+    navigate("/");
   } catch (error) {
     console.error("Login failed: ", error);
     if (error.code === "auth/popup-closed-by-user") {

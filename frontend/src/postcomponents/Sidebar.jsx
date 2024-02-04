@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import SidebarRow from "./SidebarRow";
 import FeedIcon from "@mui/icons-material/Feed";
-import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import LoginIcon from "@mui/icons-material/Login";
@@ -57,10 +56,6 @@ const Sidebar = () => {
   const handleLogout = () => {
     setLogout(true);
   };
-  const handlePost = () => {
-    navigate("/");
-  };
-
   return (
     <SidebarWrapper
       style={{ color: "white", fontWeight: "bolder", fontSize: "larger" }}>
@@ -69,11 +64,6 @@ const Sidebar = () => {
       />
 
       <SidebarRow onClick={handleHome} Icon={FeedIcon} title="Home" />
-      <SidebarRow
-        onClick={handlePost}
-        Icon={AddAPhotoIcon}
-        title="Post Photos"
-      />
       <SidebarRow onClick={handleChat} Icon={ContactMailIcon} title="Chat" />
       <SidebarRow onClick={handleQuiz} Icon={LiveHelpIcon} title="Quiz" />
       <SidebarRow onClick={handleGame} Icon={GamepadIcon} title="Game" />

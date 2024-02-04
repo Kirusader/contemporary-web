@@ -7,10 +7,14 @@ import { auth } from "../firebaseconfig.js";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from "../firebaseconfig.js";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-
+import HubLogo from "../assets/student-hub.png";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import IconButton from "@mui/material/IconButton";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [username, setUserName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
@@ -48,7 +52,6 @@ function Register() {
   const handlePasswordChange = (e) => {
     const { value } = e.target;
     setPassword(value);
-
     setPasswordValidations({
       minLength: value.length >= 6,
       lowercase: /[a-z]/.test(value),
@@ -57,7 +60,9 @@ function Register() {
       specialChar: /[\W_]/.test(value),
     });
   };
-
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (username.length >= 4 && username.length <= 10) {
@@ -90,8 +95,25 @@ function Register() {
     <div
       className="container"
       style={{ color: "white", fontWeight: "bolder", fontSize: "large" }}>
-      <h1 style={{ textAlign: "center", color: "white" }}>Register</h1>
       <Form onSubmit={handleSubmit}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "5px",
+          }}>
+          {" "}
+          <img
+            src={HubLogo}
+            alt="Student Hub Logo"
+            style={{ width: "100px", height: "100px", marginLeft: "20px" }}
+          />
+          <h1 style={{ textAlign: "center", color: "white" }}>
+            Solent Student Hub
+          </h1>
+        </div>
+        <h1 style={{ textAlign: "center", color: "white" }}>Register</h1>
         <div>
           {errorMessage}
           <p style={{ color: passwordValidations.minLength ? "green" : "red" }}>
@@ -136,14 +158,40 @@ function Register() {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group
+          controlId="formBasicPassword"
+          style={{ position: "relative" }}>
           <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-            placeholder="Enter password"
-          />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              position: "relative",
+            }}>
+            <Form.Control
+              type={isPasswordVisible ? "text" : "password"}
+              value={password}
+              onChange={handlePasswordChange}
+              placeholder="Enter password"
+            />
+            <IconButton
+              type="button"
+              onClick={togglePasswordVisibility}
+              style={{
+                position: "absolute",
+                right: 0,
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 10,
+                margin: "0 10px",
+              }}>
+              {isPasswordVisible ? (
+                <VisibilityOffIcon color="primary" />
+              ) : (
+                <VisibilityIcon color="primary" />
+              )}
+            </IconButton>
+          </div>
         </Form.Group>
 
         <Button

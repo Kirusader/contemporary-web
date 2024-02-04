@@ -10,11 +10,15 @@ import { db, signInWithGoogle, signInWithFacebook } from "../firebaseconfig.js";
 import { doc, getDoc } from "firebase/firestore";
 import { Google } from "../assets/Google.jsx";
 import { Facebook } from "../assets/Facebook.jsx";
-
+import HubLogo from "../assets/student-hub.png";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import IconButton from "@mui/material/IconButton";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 function Login() {
   const { dispatch } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoggedIn, setisLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -60,11 +64,14 @@ function Login() {
       );
     }
   };
-  const handleGoogleLogin = async () => {
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+  const handleGoogleLogin = async (event) => {
     event.preventDefault();
     await signInWithGoogle(navigate, dispatch);
   };
-  const handleFacebookLogin = async () => {
+  const handleFacebookLogin = async (event) => {
     event.preventDefault();
     await signInWithFacebook(navigate, dispatch);
   };
@@ -72,9 +79,23 @@ function Login() {
     <div
       className="container"
       style={{ color: "white", fontWeight: "bolder", fontSize: "large" }}>
-      <h1 style={{ textAlign: "center", color: "white" }}>
-        Welcome Solent Student Hub
-      </h1>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          margin: "5px",
+        }}>
+        {" "}
+        <img
+          src={HubLogo}
+          alt="Student Hub Logo"
+          style={{ width: "100px", height: "100px", marginLeft: "20px" }}
+        />
+        <h1 style={{ textAlign: "center", color: "white" }}>
+          Welcome Solent Student Hub
+        </h1>
+      </div>
       <h1 style={{ textAlign: "center", color: "white" }}>Login</h1>
       <Form onSubmit={handleSubmit}>
         {errorMessage}
@@ -90,12 +111,36 @@ function Login() {
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              position: "relative",
+            }}>
+            <Form.Control
+              type={isPasswordVisible ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter password"
+            />
+            <IconButton
+              type="button"
+              onClick={togglePasswordVisibility}
+              style={{
+                position: "absolute",
+                right: 0,
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 10,
+                margin: "0 10px",
+              }}>
+              {isPasswordVisible ? (
+                <VisibilityOffIcon color="primary" />
+              ) : (
+                <VisibilityIcon color="primary" />
+              )}
+            </IconButton>
+          </div>
         </Form.Group>
         <Form.Group style={{ alignItems: "baseline" }}>
           <Button
@@ -134,14 +179,14 @@ function Login() {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-around",
-              padding: "2px",
+              margin: "4px",
             }}>
             <button
               onClick={() => handleGoogleLogin()}
               style={{
                 backgroundColor: "#002ead",
                 color: "white",
-                padding: "15px",
+                padding: "5px",
                 border: "none",
                 borderRadius: "4px",
                 cursor: "pointer",
@@ -158,7 +203,7 @@ function Login() {
               style={{
                 backgroundColor: "#4267B2",
                 color: "white",
-                padding: "15px",
+                padding: "5px",
                 border: "none",
                 borderRadius: "4px",
                 cursor: "pointer",
