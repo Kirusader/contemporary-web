@@ -67,12 +67,10 @@ function Login() {
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
-  const handleGoogleLogin = async (event) => {
-    event.preventDefault();
+  const handleGoogleLogin = async () => {
     await signInWithGoogle(navigate, dispatch);
   };
-  const handleFacebookLogin = async (event) => {
-    event.preventDefault();
+  const handleFacebookLogin = async () => {
     await signInWithFacebook(navigate, dispatch);
   };
   return (
