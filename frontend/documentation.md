@@ -54,8 +54,22 @@ The Student Hub application is designed to address these needs by offering a uni
 
 ---
 
-The project refers to the Design Thinking methodology throughout the entire project. However, this documentation concentrates on the final two phases, Prototyping and Testing.
-The implementation of the Software Development Life Cycle (SDLC) helped simplify the process of monitoring and managing application. Various models are used to arrange the phases of the Software Development Life Cycle (SDLC) in a manner that maximises the efficiency of the development process.
+The Agile methodology based on Design Thinking, along with the Scrum framework, was applied in the development process of the Student Hub application.
+Agile Scrum focuses on breaking down the project into small, manageable iterations (sprints). This approach is ideal for developing a multifaceted app like Student Hub, as it allows me to focus on one set of features (like posts,chats,games and quizzes) at a time, ensuring quality and functionality before moving on to the next set.
+In an environment where user needs and technology trends are constantly evolving, Agile Scrum allows for greater flexibility. As new insights are gained from interviews and surveys, a developer can easily adapt and revise the approach to better meet user requirements.
+
+<p align="center">
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1707742165/resource/Scrum_Process_jrp5kg.png" /> <br>
+  <i>Scrum Process Visualization</i>
+</p> <br>
+
+Agile Scrum encourages regular feedback from users. By conducting contextual interviews and surveys, the developer can gather valuable user insights and quickly incorporate this feedback into the app development, ensuring the final product is well-tuned to the needs and preferences of its target audience.
+
+By dividing the project into sprints, risks are identified and addressed early in the development process. This proactive approach to risk management is particularly beneficial for a complex app with various features, as it allows for timely adjustments without changing the entire project.
+
+Regular testing and reviews at the end of each sprint ensure that each feature of the app is thoroughly tested and meets quality standards. This is crucial for an educational app, where reliability and user experience are paramount.
+
+Agile Scrum's focus on user involvement and iterative delivery means that the app is developed with a deep understanding of user needs. This results in a product that resonates more with students and educators, ultimately leading to higher user satisfaction. With Agile Scrum, a basic version of the app with essential features can be launched quickly. This is beneficial for gauging user response and making necessary adjustments in subsequent sprints.
 
 <br>
 <p align="center">
@@ -63,62 +77,54 @@ The implementation of the Software Development Life Cycle (SDLC) helped simplify
 </p><br>
  
  
-The Agile SDLC methodology, along with the Scrum framework, was applied in the development process of the budget control application. This technique was used, to provide a flexible and continual workflow customised for specific needs and user requirements consisting of Sprints (Iterations). I was able to prioritise features, collect feedback from students, and provide them with additional benefits through this process.
+The first phase involve creating User Stories( [Appendix A](#appendix-a) ), concise descriptions of key features and functionalities as seen through the eyes of the end-user. These stories, representing the perspective of the end user, have been organized and ranked in a backlog based on their significance and overall value. Then the project broken down into sprints, each lasting for some weeks based on the user stories. In each iteration it is tried to implement distinict features of the application based on the user specific needs and preferences.
 
-The selection of Scrum for this project corresponds to its unique feature of focusing on one activity at a time, with progression to the next step upon completion of each sprint. The Scrum framework differs from the Agile, which involves regular review and updating of the application. The strategy I implemented involved breaking down the application into smaller components and concentrating on a maximum of one or two functionalities during each sprint.
-
-<p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/c_scale,e_sharpen:100,q_100,w_614/v1685530499/Scrum_Process_kod8zr.png" /> <br>
-  <i>Scrum Process Visualization</i>
-</p> <br>
- 
- 
- In the position of an individual working on the development of a budget control application utilising Scrum, I undertook the role of the Product Owner, with the responsibility of defining and prioritising the requirements, as well as the Development Team and Scrum Master, with the task of implementing the features.
-
-The initial step involved the development of User Stories ( [Appendix A](#appendix-a) ), which are brief depictions of essential features and functionalities from the user's viewpoint. The user stories have been written from the point of view of the final consumer, and they have been prioritised in a backlog according to their importance and value.
-
-The project has been broken down into four sprints, each lasting two weeks based on the user stories. Each iteration involved the implementation of distinct features, which were determined based on the user needs established in the previous stages of the Design Thinking methodology. Each iteration has been systematically organised, with a corresponding backlog (see [Appendix B ](#appendix-b)) that contains User Stories, Sprint Goals, and interrelated tasks.
-
-By the end of all iterations, the aim was to have a functional budget control application with the core features outlined in the user stories and tested by the users who resent the target audience and user base of the application. At the end of each sprint, users have been allowed to test the features and fill out a brief survey, in which they have been asked a series of questions about the functionality and UI design of the application. Additionally, they can offer feedback and suggestions for enhancement.
-
+In conclusion, using Agile Scrum for the development of the Student Hub app ensures that the project is adaptable, user-centric, and quality-focused. By leveraging insights from contextual interviews and surveys, the development process becomes more aligned with user needs, thereby increasing the likelihood of the app's success in the educational technology market.
 <br><br>
 
 ## **Methods:**
 
 ---
 
-To achieve an accurate and organised development process for the budget control application, the final two stages of the Design Thinking framework, particularly prototyping and testing, were integrated. Additionally, I choose to discuss the Software Development Life Cycle (SDLC) model used throughout the application's development stage.
+In order to ensure a precise and structured approach to the development of the Student Hub application, it is tried to focus on integrating the final two phases of the Design Thinking framework, emphasizing prototyping and testing. Moreover, the Software Development Life Cycle (SDLC) model will be seen in delve, detailing its application throughout the development stage of the software.
 
 ### **Prototype phase :**
 
 ---
 
-During the prototyping phase, I adapted the Design Thinking process, which is typically team-oriented, to align with the scope and demands of a small-scale individual project. During the prototype stage, I designed and developed an actual representation of the application's features and user interface. The Figma tool assisted in the visual representation of the proposed functionalities, mockups, and understanding of how the application will look and function.
+In the prototyping phase of the Student Hub application, which encompasses features like post, chat, quiz, and game, I tailored the Design Thinking approach, commonly used in team settings, to suit the unique needs of an individual project. This phase involved crafting a tangible prototype that represent the app's key functionalities and user interface. I employed Figma as a tool to create detailed visual representations of the proposed features, along with interactive mockups that provided a clear picture of the app’s design and operational flow.
+<br>
 
-In compliance with the Software Development Life Cycle (SDLC) model, as an independent developer, I implemented the Agile methodology utilising the Scrum framework for the development process of the application and obtained multiple roles, including a product owner and user. The above method allowed me to confirm that the prototype complied with the user requirements determined in the initial stages of the Design Thinking methodology. Agile techniques encourage iterative development, teamwork, and flexibility, which makes them appropriate for small-scale, individual projects. The application of the Scrum framework, a commonly implemented Agile methodology, assisted effective management of the development process, prioritisation of tasks, and consistent feedback and adjustment.
+<p align="center">
+  <link src="https://www.figma.com/proto/9WypOT216zSXQjUXSZYnab/Student-Hub-Prototype?type=design&node-id=23-77&t=pvrE9gcCcQxgtocd-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=23%3A77&mode=design " /> <i>Interactive Prototype Designed using Figma Software</i>
+</p><br>
+ 
+Adhering to the principles of the Software Development Life Cycle (SDLC) model, I adopted the Agile methodology within the Scrum framework, despite working as an independent developer. This approach allowed me to assume multiple roles, including that of a product owner and user, which was instrumental in ensuring that the prototype was in line with the user requirements identified during the early stages of the Design Thinking process. Agile practices, known for promoting iterative development, teamwork, and adaptability, proved to be highly effective for this small-scale, individual project. The implementation of the Scrum framework, a widely recognized Agile methodology, facilitated efficient management of the development process. It helped in prioritizing tasks effectively and allowed for continuous feedback and necessary adjustments, ensuring that the prototype of the Student Hub app met its intended goals and user expectations.
 
 ### **Testing phase :**
 
 ---
 
-In an effort to guarantee compliance between the developed prototype and user requirements, several tests were performed. These tests aimed to validate the effectiveness, ease of use, and user satisfaction of the app's functionality. The testing process was customised according to the project's scope, considering the restrictions of limited resources and an individualised development methodology.
+For the testing phase of the Student Hub application, which incorporates features such as posts, chat, quizzes, and games, a series of [Survey](https://freeonlinesurveys.com/s/7cB3Enxa) questions were crafted to assess the application's performance (see [ Appendix B ](#appendix-b)).
+. These questions were specifically designed to evaluate the app using standard usability metrics, including user satisfaction, clarity of terminology, layout and design, navigation, and other crucial aspects impacting the user experience.
 
-Following the completion of each sprint, a survey has been created to collect responses and recommendations from the users as part of usability testing. The [Survey](https://freeonlinesurveys.com/s/RuZX9S5H/i/0) included questions relevant to the usability, functionality, user satisfaction, and user interface. Implementation of the surveys into the testing process assists in the collection of quantitative data and insights from a student user base. Through engagement with the budget control application, users performed a series of instructions (see [ Appendix C ](#appendix-c)), which allowed the identification of potential challenges and measurement of their overall satisfaction . Usability metrics have been established to evaluate the effectiveness of a budget control application (see [ Appendix D ](#appendix-D)). The various metrics employed assisted in an in-depth examination of the functionality of the application by measuring different aspects.
+This approach aimed to gather actionable insights from potential users, helping to fine-tune the app for optimal functionality and user engagement. The survey delved into various aspects of the application, asking users to rate and provide feedback on the ease of use, aesthetic appearance of the design, and the effectiveness of navigation within the app. Additionally, it sought users' opinions on the relevance and clarity of the terminology used, ensuring that the app's language resonated well with its target audience.
 
-Heatmaps (see [Appendix E ](#appendix-e)) assist in the discovery of parts of the app that receive the highest level of user attention within an application. Heatmaps provide information about user behaviour by monitoring their clicks and interactions, accordingly identifying the elements, features, or sections of an application that obtained the most attention.
-
-After the collection of data from the usability survey and user observations, an analysis was performed. The collected data were used for analysis to identify common patterns and trends in the users feedback. The usability metrics provided numerical data regarding the application's efficiency and identified specific domains that required improvements. The iterative improvements of the application were driven by information obtained from testing and surveys, which ensured the accomplishment of user needs. The testing phase was essential in assessing the usability of the budget control application.
+The feedback collected through this survey was instrumental in identifying areas of improvement and success, ultimately guiding further refinements to enhance the overall user experience of the Student Hub application. By focusing on these key usability metrics, the testing phase was strategically aligned to ensure that the app not only met its functional objectives but also delivered a satisfying and intuitive experience to its users (see [ Appendix C ](#appendix-c)).
 
 ## **Conclusion and Results:**
 
 ---
 
-The budget control application underwent a usability testing survey among 14 students, and it was found that all participants accomplished the set of instructions established in the earlier stage (see [Appendix F ](#appendix-f)). 95% of surveyed states that increasing a budget and adding transactions was relatively easy and the budget updates accordingly to income and spendings (see [Appendix G ](#appendix-g)). Almost all students responded that they received relevant feedback from the application. The survey question related to data entry issues received a weighted average score of 8.93 / 10 which proves most of the students did not experience any problems with entering the information into the budget app (see [Appendix H ](#appendix-h)). Only one student reported that he couldn't find all the relevant information, and two experienced performance issues like slow loading times. The application interface was assessed with an excellent score of 9.57, indicating a successfully designed and user-friendly interface. The majority of users expressed that the functionality of displaying transactions on graphs was beneficial and valuable.
+A usability test was carried out on the Student Hub app, with 19 Solent University students taking part voluntarily. Every participant managed to log in and create a new post without trouble (see [ Appendix D ](#appendix-d)). On average, they rated the app's design and layout 8.47 out of 10 for visually appealing. They also gave 8.26 out of 10 for how easy it was to message another student (see [ Appendix E ](#appendix-e)). Additionally, they found taking quizzes easy, scoring it 8.63 out of 10, and everyone could see their quiz results successfully (see [ Appendix F ](#appendix-f)).
 
-Two survey questions focused on potential future enhancements and suggestions to improve the overall user experience of the application. A proposed solution for improving the user experience involved the creation of a tiered system for users, whereby they could accrue points upon achieving predetermined savings targets. According to other users, it would be advantageous to incorporate diverse currency systems to simplify the utilisation of the application for users from different countries (see [Appendix I ](#appendix-i)) .
+Participants also enjoyed the game feature and found it simple to play. They were happy with the feedback it provided. Most respondents were pleased with the app overall "Feedback", giving it a high score of 8.16 out of 10 (see [ Appendix G ](#appendix-g)). Only four people had issues with "Navigation" around the app, and most found it easy to enter data("Data Entry"), scoring this 8.11 out of 10 (see [ Appendix H ](#appendix-h)). The app received an 8.26 out of 10 overall satisfaction rating, with many suggesting adding voice and video calls and more advanced games (see [ Appendix I ](#appendix-i)). These survey results show that the Student Hub app really meets what its users need and prefer, offering great user experience features.
 
-In conclusion, the phases of prototyping and testing within the Design Thinking framework were essential in the development process of the budget control application. Prototype design and implementation of diverse testing methodologies ensured that the application satisfied the user requirements identified in the preceding phases. The utilisation of the Agile methodology, in conjunction with the Scrum framework, has facilitated a flexible and cooperative approach to successfully managing the development process, even in an individual development environment. The main objective was to provide an optimal application that satisfies user requirements and provides a smooth user interface. The application solves the problem identified  in the first stages of DT methodology, which states that  many students experience difficulties in managing their finances, including monitoring their expenditures, complying with a budget, and identifying opportunities to spend less money.
+In conclusion, using prototyping and testing as part of the Design Thinking process was key in creating the Student Hub app. This detailed approach made sure the app was fun and interactive, with features like posts, chat, quizzes, and games, meeting what users needed from the start. Using Agile methods and the Scrum framework helped manage the development process well, even for an individual project.
 
+The main goal in making the Student Hub app was to solve problems students face, which was identified earlier in the Design Thinking process. These included needing a single place for effective communication, learning, lesiure activities, and supporting their study journey. Through various tests and making changes to the prototype, the app became user-friendly with a execellent interface.
+
+Overall, the app fills the gap in students' everyday study and social life. It's a strong tool for managing study work while also being part of the community and enjoying leisure time.
 <br><br>
 
 ## **Appendices:**
@@ -130,60 +136,53 @@ In conclusion, the phases of prototyping and testing within the Design Thinking 
 ### Appendix A:
 
 <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/e_sharpen:100,q_100/v1685559967/user_story_qwfycc.png" /> 
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1707747913/resource/User_Stories_ozgx1o.jpg" /> 
 </p><br>
-https://res.cloudinary.com/drnarknab/image/upload/v1707655525/resource/Emily_Johnson_otezbz.jpg
 
 ### Appendix B:
 
  <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/q_100/v1685714126/Scrum_Sprints_nypcvo.png" /> 
-</p>
- <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/q_100/v1685715411/Scrum_Scprint_3_lntsei.png" /> 
-</p>
- <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/q_100/v1685715503/Scrum_Scprint_4_jjsxbr.png" /> 
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1707820493/resource/Screenshot_130_sknalf.png" /> 
 </p><br>
 
 ### Appendix C:
 
  <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/e_sharpen:100,q_100/v1685991077/User_tasks_dwfexj.png" /> 
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1707823979/resource/Screenshot_131_mhge4i.png" /> 
 </p><br>
 
 ### Appendix D:
 
- <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/q_100/v1685989861/Usability_metrics_vmrsfd.png" /> 
+  <p align="center">
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1707903445/resource/Main_page-0001_g4gnd7.jpg" /> 
 </p><br>
 
 ### Appendix E:
 
  <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/c_scale,e_sharpen:100,q_100,w_585/v1685993879/Heatmaps_jiecmo.png" /> 
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1707903445/resource/Main_page-0002_dymrbv.jpg" /> 
 </p><br>
 
 ### Appendix F:
 
-  <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/c_scale,e_sharpen:100,q_100,w_335/v1686000349/Survey_results_tg0rmo.png" /> 
+<p align="center">
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1707903827/resource/Main_page-0003_ep8oto.jpg" /> 
 </p><br>
 
 ### Appendix G:
 
- <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/e_sharpen:100,q_100/v1686000894/Survey_results_2_f6m9ez.png" /> 
+<p align="center">
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1707903827/resource/Main_page-0004_hkd1la.jpg" /> 
 </p><br>
 
 ### Appendix H:
 
 <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/e_sharpen:100,q_100/v1686001423/Survey_results_3_gks7uw.png" /> 
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1707903828/resource/Main_page-0005_ydkryt.jpg" /> 
 </p><br>
 
 ### Appendix I:
 
 <p align="center">
-  <img src="https://res.cloudinary.com/dwc3fiaro/image/upload/c_scale,e_sharpen:100,q_100,w_651/v1686052990/Recommendations_idvwcl.png" /> 
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1707903829/resource/Main_page-0006_dgciia.jpg" /> 
 </p><br>
