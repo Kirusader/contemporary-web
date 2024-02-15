@@ -88,7 +88,7 @@ npm run dev
 ```
 
 ![Development mode](https://res.cloudinary.com/drnarknab/image/upload/v1707921818/resource/Screenshot_137_qwdtn1.png)
-(https://res.cloudinary.com/drnarknab/image/upload/v1707921820/resource/Screenshot_138_x9jdnw.png)
+![Development mode](https://res.cloudinary.com/drnarknab/image/upload/v1707921820/resource/Screenshot_138_x9jdnw.png)
 
 You can login using either Facebook or Google account or register for new account.
 
