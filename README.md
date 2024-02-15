@@ -1,4 +1,8 @@
-<!-- @format -->
+<h2 align="center"> Student Hub Application </h2>
+
+<p align="center">
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1708003793/resource/Screenshot_114_cmi393.png" />
+</p>
 
 # Table of Contents
 
