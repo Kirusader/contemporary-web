@@ -95,8 +95,8 @@ In order to ensure a precise and structured approach to the development of the S
 In the prototyping phase of the Student Hub application, which encompasses features like post, chat, quiz, and game, I tailored the Design Thinking approach, commonly used in team settings, to suit the unique needs of an individual project. This phase involved crafting a tangible prototype that represent the app's key functionalities and user interface. I employed Figma as a tool to create detailed visual representations of the proposed features, along with interactive mockups that provided a clear picture of the app’s design and operational flow.
 <br>
 
-- **Link to hosted Git Repository & README file** :
-  <https://github.com/Kirusader/contemporary-web.git>
+- **Interactive Prototype Designed Using Figma Software Link** :
+  <https://www.figma.com/proto/9WypOT216zSXQjUXSZYnab/Student-Hub-Prototype?type=design&node-id=23-77&t=pvrE9gcCcQxgtocd-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=23%3A77&mode=design >
 
 <br><br>
 
