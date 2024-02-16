@@ -59,10 +59,9 @@ Agile Scrum focuses on breaking down the project into small, manageable iteratio
 In an environment where user needs and technology trends are constantly evolving, Agile Scrum allows for greater flexibility. As new insights are gained from interviews and surveys, a developer can easily adapt and revise the approach to better meet user requirements.
 
 <p align="center">
-  <https://res.cloudinary.com/drnarknab/image/upload/v1707742165/resource/Scrum_Process_jrp5kg.png> <br>
+<img src="https://res.cloudinary.com/drnarknab/image/upload/v1707742165/resource/Scrum_Process_jrp5kg.png" /><br>
   <i>Scrum Process Visualization</i>
 </p> <br>
-
 Agile Scrum encourages regular feedback from users. By conducting contextual interviews and surveys, the developer can gather valuable user insights and quickly incorporate this feedback into the app development, ensuring the final product is well-tuned to the needs and preferences of its target audience.
 
 By dividing the project into sprints, risks are identified and addressed early in the development process. This proactive approach to risk management is particularly beneficial for a complex app with various features, as it allows for timely adjustments without changing the entire project.
@@ -97,7 +96,8 @@ In the prototyping phase of the Student Hub application, which encompasses featu
 <br>
 
 <p align="center">
-  <link src="https://www.figma.com/proto/9WypOT216zSXQjUXSZYnab/Student-Hub-Prototype?type=design&node-id=23-77&t=pvrE9gcCcQxgtocd-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=23%3A77&mode=design" /> <i>Interactive Prototype Designed using Figma Software</i>
+  <https://www.figma.com/proto/9WypOT216zSXQjUXSZYnab/Student-Hub-Prototype?type=design&node-id=23-77&t=pvrE9gcCcQxgtocd-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=23%3A77&mode=design> <br>
+  <i>Interactive Prototype Designed using Figma Software</i>
 </p><br>
  
 Adhering to the principles of the Software Development Life Cycle (SDLC) model, I adopted the Agile methodology within the Scrum framework, despite working as an independent developer. This approach allowed me to assume multiple roles, including that of a product owner and user, which was instrumental in ensuring that the prototype was in line with the user requirements identified during the early stages of the Design Thinking process. Agile practices, known for promoting iterative development, teamwork, and adaptability, proved to be highly effective for this small-scale, individual project. The implementation of the Scrum framework, a widely recognized Agile methodology, facilitated efficient management of the development process. It helped in prioritizing tasks effectively and allowed for continuous feedback and necessary adjustments, ensuring that the prototype of the Student Hub app met its intended goals and user expectations.
