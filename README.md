@@ -1,4 +1,8 @@
-<!-- @format -->
+<h2 align="center"> Student Hub Application </h2>
+
+<p align="center">
+  <img src="https://res.cloudinary.com/drnarknab/image/upload/v1708003793/resource/Screenshot_114_cmi393.png" />
+</p>
 
 # Table of Contents
 
@@ -88,7 +92,7 @@ npm run dev
 ```
 
 ![Development mode](https://res.cloudinary.com/drnarknab/image/upload/v1707921818/resource/Screenshot_137_qwdtn1.png)
-(https://res.cloudinary.com/drnarknab/image/upload/v1707921820/resource/Screenshot_138_x9jdnw.png)
+![Development mode](https://res.cloudinary.com/drnarknab/image/upload/v1707921820/resource/Screenshot_138_x9jdnw.png)
 
 You can login using either Facebook or Google account or register for new account.
 
