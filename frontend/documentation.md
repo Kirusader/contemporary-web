@@ -95,11 +95,11 @@ In order to ensure a precise and structured approach to the development of the S
 In the prototyping phase of the Student Hub application, which encompasses features like post, chat, quiz, and game, I tailored the Design Thinking approach, commonly used in team settings, to suit the unique needs of an individual project. This phase involved crafting a tangible prototype that represent the app's key functionalities and user interface. I employed Figma as a tool to create detailed visual representations of the proposed features, along with interactive mockups that provided a clear picture of the app’s design and operational flow.
 <br>
 
-<p align="center">
-   <https://github.com/Kirusader/contemporary-web.git> <br>
-  <i>Interactive Prototype Designed using Figma Software</i>
-</p><br>
- 
+- **Link to hosted Git Repository & README file** :
+  <https://github.com/Kirusader/contemporary-web.git>
+
+<br><br>
+
 Adhering to the principles of the Software Development Life Cycle (SDLC) model, I adopted the Agile methodology within the Scrum framework, despite working as an independent developer. This approach allowed me to assume multiple roles, including that of a product owner and user, which was instrumental in ensuring that the prototype was in line with the user requirements identified during the early stages of the Design Thinking process. Agile practices, known for promoting iterative development, teamwork, and adaptability, proved to be highly effective for this small-scale, individual project. The implementation of the Scrum framework, a widely recognized Agile methodology, facilitated efficient management of the development process. It helped in prioritizing tasks effectively and allowed for continuous feedback and necessary adjustments, ensuring that the prototype of the Student Hub app met its intended goals and user expectations.
 
 ### **Testing phase :**
