@@ -92,6 +92,6 @@ npm run dev
 
 You can login using either Facebook or Google account or register for new account.
 
-** Test email & **Test password
+** Test email & Test password **
 
-kiros2015@gmail.com ab1234
+kiros2015@gmail.com <br> ab1234

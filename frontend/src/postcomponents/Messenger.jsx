@@ -7,13 +7,7 @@ import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import styled from "styled-components";
 import { useAuth } from "../Reducer";
 import { storage, db } from "../firebaseconfig.js";
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  listAll,
-  list,
-} from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 import { collection, addDoc } from "firebase/firestore";
 import React, { useState, useEffect, useRef } from "react";
@@ -102,7 +96,6 @@ const Messenger = () => {
       setFormData({
         username: "",
         description: "",
-        // reset other fields
       });
       setImage(null);
     }

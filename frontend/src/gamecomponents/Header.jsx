@@ -1,5 +1,5 @@
 /** @format */
-/** @format */
+
 import logoImg from "../assets/game-logo.png";
 export default function Header() {
   return (

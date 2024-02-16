@@ -59,9 +59,7 @@ const Sidebar = () => {
   return (
     <SidebarWrapper
       style={{ color: "white", fontWeight: "bolder", fontSize: "larger" }}>
-      <SidebarRow
-        title={`Welcome, ${username}`} // Changed to a template string
-      />
+      <SidebarRow title={`Welcome, ${username}`} />
 
       <SidebarRow onClick={handleHome} Icon={FeedIcon} title="Home" />
       <SidebarRow onClick={handleChat} Icon={ContactMailIcon} title="Chat" />

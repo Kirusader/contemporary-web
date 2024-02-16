@@ -35,10 +35,26 @@ const Post = ({ profilePic, message, timestamp, image, username, likes }) => {
   };
 
   const handleShare = () => {
-    setPost((prevPost) => ({
-      ...prevPost,
-      shares: prevPost.shares + 1,
-    }));
+    if (navigator.share) {
+      navigator
+        .share({
+          title: `Post by ${localStorage.getItem("username")}`,
+          url: image,
+        })
+        .then(() => {
+          console.log("Thanks for sharing!");
+          // Increment the share count only when sharing is successful
+          setPost((prevPost) => ({
+            ...prevPost,
+            shares: prevPost.shares + 1,
+          }));
+        })
+        .catch((error) => {
+          console.log("Error sharing:", error);
+        });
+    } else {
+      console.log("Web share not supported");
+    }
   };
 
   const handleChange = (e) => {

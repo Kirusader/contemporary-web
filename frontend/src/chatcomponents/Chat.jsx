@@ -38,8 +38,8 @@ const Chat = () => {
   const myparams = useParams();
   const storedUid = localStorage.getItem("uid");
   const storedUsername = localStorage.getItem("username");
-  const storedChatId = storedUid + myparams.memberId;
-  const invertedChatId = myparams.memberId + storedUid;
+  const storedChatId = storedUid + myparams.memberId; //To display and identify sender and receiver messages
+  const invertedChatId = myparams.memberId + storedUid; //To display and identify sender and receiver messages
   const [chatWith, setChatWith] = useState([]);
 
   useEffect(() => {
@@ -108,22 +108,6 @@ const Chat = () => {
       unsubscribeInvertedChat();
     };
   }, [storedChatId, invertedChatId]);
-
-  // useEffect(() => {
-  //   const getMessages = async (chatIdentifier, setMessageState) => {
-  //     const q = query(
-  //       messageCollectionRef,
-  //       where("chatId", "==", chatIdentifier),
-  //       orderBy("timestamp", "asc")
-  //     );
-  //     const data = await getDocs(q);
-  //     setMessageState(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //   };
-
-  //   getMessages(storedChatId, setMessages);
-  //   getMessages(invertedChatId, setMyMessages);
-  // }, [storedChatId, invertedChatId]);
-
   const sendMessage = async (e) => {
     e.preventDefault();
 

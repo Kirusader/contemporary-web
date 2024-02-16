@@ -6,7 +6,7 @@ const Answers = ({ answers, selectedAnswer, answerState, onSelect }) => {
   const shuffledAnswers = useRef();
   if (!shuffledAnswers.current) {
     shuffledAnswers.current = [...answers];
-    shuffledAnswers.current.sort(() => Math.random() - 0.5);
+    shuffledAnswers.current.sort(() => Math.random() - 0.5); // Shuffle the answer in the multiple choice
   }
   return (
     <ul id="answers">
@@ -14,7 +14,7 @@ const Answers = ({ answers, selectedAnswer, answerState, onSelect }) => {
         let cssClass = "";
         const isSelected = selectedAnswer === answer;
         if (answerState === "answered" && isSelected) {
-          cssClass = "selected";
+          cssClass = "selected"; //To mark the selected answer
         }
         if (
           (answerState === "correct" || answerState === "wrong") &&

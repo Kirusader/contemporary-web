@@ -18,6 +18,7 @@ const Sidebar = () => {
   const userId = localStorage.getItem("uid");
   const username = localStorage.getItem("username");
   useEffect(() => {
+    //To add real time users available
     const q = query(usersCollectionRef, where("uid", "!=", userId));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const loadedUsers = snapshot.docs.map((doc) => ({

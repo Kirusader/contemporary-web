@@ -29,7 +29,7 @@ const Stories = () => {
           key={post.id}
           profileSrc={post.data.imageurl}
           title={post.data.username}
-          image={post.data.imageurl} // Pass URL directly
+          image={post.data.imageurl}
         />
       ))}
     </StoriesWrapper>
