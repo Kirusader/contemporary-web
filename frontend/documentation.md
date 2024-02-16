@@ -96,7 +96,7 @@ In the prototyping phase of the Student Hub application, which encompasses featu
 <br>
 
 <p align="center">
-  <https://www.figma.com/proto/9WypOT216zSXQjUXSZYnab/Student-Hub-Prototype?type=design&node-id=23-77&t=pvrE9gcCcQxgtocd-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=23%3A77&mode=design> <br>
+   <https://github.com/Kirusader/contemporary-web.git> <br>
   <i>Interactive Prototype Designed using Figma Software</i>
 </p><br>
  
